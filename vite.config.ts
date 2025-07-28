@@ -1,14 +1,19 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    dts({ outDir: 'dist', tsconfigPath: './tsconfig.build.json' }),
+  ],
+
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: 'src/index.ts',
       name: 'SmartlifyReactLibrary',
       fileName: (format) => `smartlify-react-library.${format}.js`,
+      formats: ['es'],
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
@@ -17,6 +22,7 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
+        exports: 'named',
       },
     },
   },

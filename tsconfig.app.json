@@ -1,23 +1,26 @@
 {
+  "declaration": true,
+  "emitDeclarationOnly": true,
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",
-    "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "declaration": true,
-    "declarationDir": "dist/types",
 
-    /* Bundler mode */
+    /* For Vite bundling mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
+
+    /* Build-only */
     "noEmit": true,
+
+    /* JSX support */
     "jsx": "react-jsx",
 
-    /* Linting */
+    /* Strictness & Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -25,6 +28,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"],
-  "exclude": ["dist", "node_modules"]
+  "include": ["src"]
 }
